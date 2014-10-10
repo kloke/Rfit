@@ -1,0 +1,39 @@
+\name{summary.rfit}
+\alias{summary.rfit}
+%- Also NEED an '\alias' for EACH other topic documented here.
+\title{ Summarize Rank-Based Linear Model Fits }
+\description{
+Provides a summary similar to the traditional least squares fit.
+}
+\usage{
+\method{summary}{rfit}(object,...)
+}
+%- maybe also 'usage' for other objects documented here.
+\arguments{
+\item{object}{an object of class 'rfit', usually, a result of a call to 'rfit'}
+\item{\dots}{ additional arguments }
+}
+%\details{
+  %~~ If necessary, more details than the description above ~~
+%}
+%\value{
+  %~Describe the value returned
+  %If it is a LIST, use
+  %\item{comp1 }{Description of 'comp1'}
+  %\item{comp2 }{Description of 'comp2'}
+  %...
+%}
+\references{
+Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
+}
+\author{ John Kloke \email{kloke@biostat.wisc.edu}}
+
+
+% ~Make other sections like Warning with \section{Warning }{....} ~
+%}
+%\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
+\examples{
+data(baseball)
+fit<-rfit(weight~height,data=baseball)
+summary(fit)
+}

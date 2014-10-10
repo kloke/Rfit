@@ -1,0 +1,183 @@
+      SUBROUTINE LIN3(N,EPSA,GAM0,CONST,MAXNO,RESIDS,DERSC,
+     .                  CORR,IFLAG,SOL)
+C
+C	LIN3 SOLVES THE EQUATION
+C		HFUNCD = CONST
+C	USING THE METHOD OF FALSE POSITION, THE
+C	ILLINOIS VERSION. IF THE ROUTINE FAILS TO
+C	BRACKET THE SOLUTION IN MAXNO STEPS IFLAG
+C	IS SET TO 1, IF IT FAILS IN THE FALSE POSITION
+C	PART IN MAXNO OF STEPS THEN IFAG IS SET TO 2,
+C	OTHERWISE IFLAG IS 0.
+C
+C	ON ENTRY
+C
+C          N         INTEGER. SAMPLE SIZE.
+C          EPSA      REAL. TOLERANCE FOR DOMAIN VALUES.
+C          GAM0      REAL. INITIAL ESTIMATE OF 1/TAU.
+C          CONST     REAL. CONSTANT OF LHS OF EQUATION.
+C          MAXNO     INTEGER. MAXIMUM NUMBER OF ITERATIONS.
+C          RESIDS    REAL(N). VECTOR OF RESIDUALS.
+C          DERSC     REAL(N). DERIVATIVE OF SCORE FUNCTION.
+C          CORR      REAL. ENSURES FUNCTION H IS A CDF.
+C
+C	ON RETURN
+C
+C          IFLAG     INTEGER. CONVERGENCE INDICATOR DISCUSSED ABOVE.
+C          SOL       REAL. SOLUTION TO EQUATION.
+C
+C       SUBROUTINE CALLED
+C
+C         HFUNCD
+C
+      INTEGER N,MAXNO,IFLAG,IT,IBISEC
+c     double precision brac
+      double precision DELTA,SLOPE2,SLOPE,A2,Z2,ANEW,ZNEW
+      double precision A3,AOLD,Z3,XMAX
+      double precision X2MAX,DIRCHK
+      double precision EPSA,GAM0,CONST,CORR,SOL,EPFSN,Z1,A1,ZOLD
+      double precision RESIDS(N),DERSC(N)
+C
+C	INITIAL SETUP
+C
+      IT = 0
+C
+C	TOLERANCE FOR FUNCTION EVALUATION
+C
+      EPFSN = 1.0D-5
+      IFLAG = 0
+      SLOPE = 2.0D0*GAM0
+      A1 = CONST/SLOPE
+      CALL HFUNCD(N,RESIDS,DERSC,CORR,A1,Z1,1,XMAX)
+      ZOLD = Z1 - CONST
+c     write(6,*) ' initial a z and xmax', a1,zold,xmax
+      AOLD = A1
+      IF(DABS(Z1 - CONST) .LT. EPFSN) GOTO 310
+c     DELTA = (CONST - Z1)*(XMAX/4.0E0)
+      DELTA = XMAX/8.0D0
+      DIRCHK = CONST - Z1
+C
+C	ITERATIVE PART TO BRACKET SOLUTION
+C
+10    CONTINUE
+CBADDDD      A2 = A1 + DELTA
+      IF(DIRCHK .LT. 0.0d0) THEN
+        A2 = A1 - DELTA
+        IF(A2 .LT. 0.0d0) THEN
+          A2 = 0.0D0
+        ENDIF
+      ELSE
+        A2 = A1 + DELTA
+        IF(A2 .GE. XMAX) THEN
+          A2 = XMAX
+        ENDIF
+      ENDIF
+      CALL HFUNCD(N,RESIDS,DERSC,CORR,A2,Z2,0,X2MAX)
+c     brac = z2 - const
+c     write(6,*) ' barcket a z xmax' , a2,brac,xmax
+      IF(DABS(Z2 - CONST) .LT. EPFSN) GOTO 320
+      IF((Z1 - CONST)*(Z2 - CONST) .LT. 0.0D0) GOTO 200
+      IT = IT + 1
+      IF(IT .GT. MAXNO) THEN
+        ZNEW = Z2 - CONST
+        ANEW = A2
+        GOTO 360
+      ENDIF
+      A1 = A2
+      Z1 = Z2
+      GOTO 10
+C
+C	SOLUTION PART
+C
+200   CONTINUE
+      Z1 = Z1 - CONST
+      Z2 = Z2 - CONST
+      IBISEC = 0
+      DO 250 IT = 1, MAXNO
+C
+C	ARE WE FINISHED?
+C       CHECK TO SEE IF WITHIN TOLERANCE.
+C
+c     write(6,*) '************* iteration number ',it
+c     write(6,*) 'epsa epsfn ', epsa,epfsn
+c     write(6,*) ' bracket a1 a2 z1 z2', a1,a2,z1,z2
+      IF(DABS(A2 - A1) .LT. EPSA) GOTO 330
+      IF(DABS(Z2 -Z1) .LT. EPFSN) GOTO 330
+      IF(IBISEC .EQ. 0) THEN
+C
+C	A3 IS THE INTERSECTION OF THE SECANT LINE JOINING
+C	THE POINTS (A1,Z1) AND (A2,Z2) AND THE HORIZONTAL
+C	AXIS.
+C
+        SLOPE2 = (Z2 - Z1)/(A2 - A1)
+        DELTA = (-Z2/SLOPE2)
+        A3 = A2 + DELTA
+      ELSE
+        DELTA = (A1 - A2)/2.0D0
+        A3 = A2 + DELTA
+        IBISEC = 0
+      ENDIF
+      CALL HFUNCD(N,RESIDS,DERSC,CORR,A3,Z3,0,X2MAX)
+      Z3 = Z3 - CONST
+c     write(6,*) 'a3 and z3 ',a3,z3
+      IF(DABS(Z3) .LT. EPFSN) GOTO 340
+      IF((Z3*Z2) .LE. 0.0D0) THEN
+C
+C	A2 AND A3 BRACKET THE SOLUTION SO A1
+C	IS REPLACED.
+C
+        A1 = A2
+        Z1 = Z2
+        A2 = A3
+        Z2 = Z3
+      ELSE
+C
+C	Z3 IS ON THE SAME SIDE OF 0 AS Z2, SO
+C	A2 IS RELPACED. IN THIS CASE TO SPEED
+C	UP THE CONVERGENCE (ILLINOIS METHOD) Z1
+C	IS HALVED UNLESS Z3 IS LARGER THAN Z1 IN
+C	ABSOLUTE VALUE, IN WHICH CASE BISECTION IS
+C	USED.
+C
+        A2 = A3
+        Z2 = Z3
+        IF(DABS(Z2) .LE. DABS(Z1/2.0D0)) THEN
+          Z1 = Z1/2.0D0
+        ELSE
+          IBISEC = 1
+        ENDIF
+      ENDIF
+250   CONTINUE
+C
+C	MAXNO OF ITERATIONS WERE EXCEEDED.
+C
+360   CONTINUE
+      ZNEW = Z2
+      ANEW = A2
+      IF(DABS(ZNEW) .LT. DABS(ZOLD)) THEN
+        IFLAG =2
+        SOL = ANEW
+        RETURN
+      ELSE
+        IFLAG = 1
+        SOL = AOLD
+        RETURN
+      ENDIF
+C
+C	FINAL SOLUTIONS AND RETURNS.
+C
+310   CONTINUE
+      SOL = A1
+      RETURN
+320   CONTINUE
+      SOL = A2
+      RETURN
+330   CONTINUE
+      SOL = (A1 + A2)/2.0D0
+c     write(6,*) ' *********** a good return? sol',sol
+      RETURN
+340   CONTINUE
+      SOL = A3
+c     write(6,*) ' ********** return on z3 ',sol
+      RETURN
+      END
