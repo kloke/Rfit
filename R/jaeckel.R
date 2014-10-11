@@ -64,7 +64,7 @@
 #' 
 #' @export jaeckel
 jaeckel <- function (x, y, beta0 = rq(y ~ x)$coef[2:(ncol(x) + 1)], 
-  scores = wscores) {
+  scores = wscores, ...) {
 
   scrs <- getScores(scores,seq_len(length(y))/(length(y)+1))
 
@@ -81,8 +81,14 @@ jaeckel <- function (x, y, beta0 = rq(y ~ x)$coef[2:(ncol(x) + 1)],
     drop(crossprod(e[order(e)],scrs))
   }
 
-  optim(beta0, j.disp, method = "BFGS", x = x, y = y, scrs=scrs,
-    gr=j.grad,scores=scores)
+  sd.y <- sd(y)
+  ystar <- y/sd.y
+
+  fit0 <- optim(beta0/sd.y, j.disp, method = "BFGS", x = x, y = ystar, scrs=scrs,
+    gr=j.grad,scores=scores,...)
+
+  optim(fit0$par*sd.y, j.disp, method = "BFGS", x = x, y = y, scrs=scrs,
+    gr=j.grad,scores=scores,...)
 
 }
 

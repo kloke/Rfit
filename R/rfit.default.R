@@ -28,14 +28,8 @@ rfit.default <- function (formula, data, subset, yhat0 = NULL,
   }
   ord<-order(fit0$resid)
 
-  sd.y <- sd(y)
-  ystar <- y/sd.y
-
-    fit0 <- jaeckel(as.matrix(xq[ord, ]), ystar[ord], fit0$coef/sd.y, scores = scores)
-    fit <- jaeckel(as.matrix(xq[ord, ]), y[ord], fit0$par*sd.y, scores = scores)
-
-#  fit0 <- jaeckel(as.matrix(xq[ord,]), ystar[ord], fit0$coef/sd.y, scores = scores)
-#  fit <- jaeckel(as.matrix(xq[ord,]), y[ord], fit0$coef*sd.y, scores = scores)
+  fit <- jaeckel(as.matrix(xq[ord,]), y[ord], fit0$coef, scores=scores, ...)
+  if( fit$convergence != 0 ) fit <- jaeckel(as.matrix(xq[ord,]), y[ord], jitter(fit$coef), scores=scores, ...)
   if( fit$convergence != 0 ) warning("rfit: Convergence status not zero in jaeckel")
   rm(ord)
   betahat <- fit$par
@@ -54,7 +48,7 @@ rfit.default <- function (formula, data, subset, yhat0 = NULL,
     N = function(...) NA
   )
 
-  tauhat <- r.gettau(ehat, ncol(xq), scores)
+  tauhat <- r.gettau(ehat, ncol(xq), scores, ...)
   if (symmetric) {
     taushat <- tauhat
   } else {

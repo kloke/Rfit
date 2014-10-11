@@ -43,6 +43,10 @@ drop.test <- function (fitF, fitR = NULL) {
     df1 <- length(fitF$betahat) - length(fitR$betahat)
   }
 
+  if( rd < 0 ) stop( "drop.test: negitive reduction in dispersion found\n",
+	"try starting full model at reduced model"
+	"see help(drop.test) for more information" )
+
   df2 <- length(fitF$y) - pp1
   test <- (rd/df1)/(fitF$tauhat/2)
   pval <- 1 - pf(test, df1, df2)

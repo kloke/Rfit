@@ -3,7 +3,7 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Drop (Reduction) in Dispersion Test }
 \description{
-Given two full model fits, this function performs a reduction in disperion test.
+Given two full model fits, this function performs a reduction in dispersion test.
 }
 \usage{
 drop.test(fitF, fitR = NULL)
@@ -14,7 +14,20 @@ drop.test(fitF, fitR = NULL)
   \item{fitR}{ An object of class rfit.  The reduced model fit. }
 }
 \details{
-Rank-based inference proceedure analogous to the traditional (LS) reduced model test.
+Rank-based inference procedure analogous to the traditional (LS) reduced model test.
+
+The full and reduced model dispersions are calculated.
+The reduction in dispersion test, or drop test for short, has an asymptotic chi-sq
+distribution.
+Simulation studies suggest using F critical values.
+The p-value returned is based on a F-distribution with df1 and df2 degrees of freedom
+where df1 is the difference in the number of parameters in the fits of fitF and fitR
+and df2 is the residual degrees of freedom in the fit fitF.
+
+Both fits are based on a minimization routine.
+It is possible that resulting solutions are such that the fitF$disp > fitRdisp.
+We recommend starting the full model at the reduced model fit as a way to avoid this situation.
+See examples.
 }
 \value{
 %  ~Describe the value returned
@@ -42,5 +55,9 @@ x1<-rnorm(47)
 x2<-rnorm(47)
 fitF<-rfit(y~x1+x2)
 fitR<-rfit(y~x1)
+drop.test(fitF,fitR)
+
+## try starting the full model at the reduced model fit ##
+fitF<-rfit(y~x1+x2,yhat0=fitR$fitted)
 drop.test(fitF,fitR)
 }
