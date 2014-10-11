@@ -44,7 +44,7 @@ drop.test <- function (fitF, fitR = NULL) {
   }
 
   if( rd < 0 ) stop( "drop.test: negitive reduction in dispersion found\n",
-	"try starting full model at reduced model"
+	"try starting full model at reduced model",
 	"see help(drop.test) for more information" )
 
   df2 <- length(fitF$y) - pp1

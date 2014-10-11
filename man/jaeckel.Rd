@@ -6,7 +6,7 @@
 Uses the built-in function \code{optim} to minimize Jaeckel's dispersion function.  Alternates between \code{CG} and \code{BFGS} steps and initially takes a number of IRLS steps.
 }
 \usage{
-jaeckel(x, y, beta0 = rq(y ~ x)$coef[2:(ncol(x) + 1)], scores = wscores)
+jaeckel(x, y, beta0 = rq(y ~ x)$coef[2:(ncol(x) + 1)], scores = wscores,...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -14,6 +14,7 @@ jaeckel(x, y, beta0 = rq(y ~ x)$coef[2:(ncol(x) + 1)], scores = wscores)
   \item{y}{ n by 1 response vector }
   \item{beta0}{ intial estimate }
   \item{scores}{ object of class 'scores' }
+  \item{\dots}{addtional arguments to be passed to fitting routine }
 }
 \details{
 This function is meant to mimic the minization algorithm implemented in RGLM (Kapenga, et. al. 1988). The main loop of the function alternates between CG and BFGS estimation methods.  To speed up convergence, it first takes a number of iterated reweighted least squares (IRLS) steps which generally gets close to the solution in a small number of steps.  
