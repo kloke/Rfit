@@ -6,7 +6,7 @@
 An estimate of the scale parameter tau is needed for the standard errors of the coefficents in rank-based regression.
 }
 \usage{
-gettau(ehat, p, scores = wscores, delta = 0.8, hparm = 2)
+gettau(ehat, p, scores = wscores, delta = 0.8, hparm = 2, ...)
 }
 \arguments{
   \item{ehat}{ full model residuals }
@@ -14,6 +14,7 @@ gettau(ehat, p, scores = wscores, delta = 0.8, hparm = 2)
   \item{scores}{ object of class scores, defaults to Wilcoxon scores}
   \item{delta}{ confidence level }
   \item{hparm}{ Joe's hparm }
+  \item{\dots}{ additional arguments. currently unused }
 }
 \details{
 This is the confidence interval type estimate of the scale parameter tau developed my Koul, Sievers, and McKean (1987).
