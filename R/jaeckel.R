@@ -42,7 +42,7 @@
 #' ##  This is a internal function.  See rfit for user-level examples.
 #' 
 #' ## The function is currently defined as
-#' function (x, y, beta0 = rq(y ~ x - 1)$coef, scores = wscores, 
+#' function (x, y, beta0 = rq(y ~ x - 1)$coef, scores = Rfit::wscores, 
 #'     maxiter = 100, irls0 = 10, BFGS0 = 20, stepCG = 5, stepBFGS = 2) 
 #' {
 #'     x <- x - outer(rep(1, nrow(x)), apply(x, 2, mean))
@@ -64,7 +64,7 @@
 #' 
 #' @export jaeckel
 jaeckel <- function (x, y, beta0 = rq(y ~ x)$coef[2:(ncol(x) + 1)], 
-  scores = wscores, ...) {
+  scores = Rfit::wscores, ...) {
 
   scrs <- getScores(scores,seq_len(length(y))/(length(y)+1))
 

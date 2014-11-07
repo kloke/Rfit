@@ -8,7 +8,7 @@ Carries out a robust analysis of variance for a one factor design.
 Analysis is based on the R estimates.
 }
 \usage{
-oneway.rfit(y, g, scores = wscores, p.adjust = "none")
+oneway.rfit(y, g, scores = Rfit::wscores, p.adjust = "none")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

@@ -6,7 +6,7 @@
 An estimate of the scale parameter tau is needed for the standard errors of the coefficents in rank-based regression.
 }
 \usage{
-gettau(ehat, p, scores = wscores, delta = 0.8, hparm = 2, ...)
+gettau(ehat, p, scores = Rfit::wscores, delta = 0.8, hparm = 2, ...)
 }
 \arguments{
   \item{ehat}{ full model residuals }

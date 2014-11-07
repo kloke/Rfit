@@ -1,5 +1,5 @@
 rfit.default <- function (formula, data, subset, yhat0 = NULL, 
-    scores = wscores, symmetric = FALSE, TAU = 'F0',  ...) {
+    scores = Rfit::wscores, symmetric = FALSE, TAU = 'F0',  ...) {
 
 # Below is taken from quantreg (under GPL) #
   call<-match.call()

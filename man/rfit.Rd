@@ -9,8 +9,8 @@ Minimizes Jaeckel's dispersion function to obtain a rank-based solution for line
 \usage{
 rfit(formula, data = list(), ...)
 %rfit.formula(formula, data = list(), ...)
-\method{rfit}{default}(formula, data, subset, yhat0 = NULL, scores = wscores, 
-symmetric = FALSE, TAU = "F0", ...)
+\method{rfit}{default}(formula, data, subset, yhat0 = NULL, 
+scores = Rfit::wscores, symmetric = FALSE, TAU = "F0", ...)
 
 }
 %- maybe also 'usage' for other objects documented here.

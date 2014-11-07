@@ -24,7 +24,7 @@
 #' 	oneway.rfit(quail$ldl,quail$treat)
 #'  
 #' @export oneway.rfit
-oneway.rfit<-function(y,g,scores=wscores,p.adjust='none') {
+oneway.rfit<-function(y,g,scores=Rfit::wscores,p.adjust='none') {
 
   ug<-unique(g)
   if( length(ug) < 3 ) stop('requires K > 2')

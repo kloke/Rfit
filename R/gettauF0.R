@@ -1,4 +1,4 @@
-gettauF0<-function(ehat,p=0,scores=wscores,delta=0.8,hparm=2,...) {
+gettauF0<-function(ehat,p=0,scores=Rfit::wscores,delta=0.8,hparm=2,...) {
 
 n<-length(ehat)
 
