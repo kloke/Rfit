@@ -51,7 +51,8 @@ oneway.rfit<-function(y,g,scores=Rfit::wscores,p.adjust='none') {
   se<-tauhat*sqrt(1/nvec[ind1]+1/nvec[ind2])
 
   ### p-values ###
-  pval<-p.adjust(pt(abs(est/se),length(y)-(kp+1)),method=p.adjust)
+  pval<-p.adjust(2*pt(abs(est/se),length(y)-(kp+1),lower.tail=FALSE),
+    method=p.adjust)
   # jk 20141119 - fix labels in p-value matrix 
   # pp<-matrix(nrow=K,ncol=K-1,dimnames=list(ug,ug[2:K]))
   # pp[lower.tri(pp)]<-pval
