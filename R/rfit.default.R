@@ -26,9 +26,17 @@ rfit.default <- function (formula, data, subset, yhat0 = NULL,
   } else {
     fit0 <- lsfit(xq, yhat0, intercept = FALSE)
   }
-  ord<-order(fit0$resid)
+#  ord<-order(fit0$resid)
 
-  fit <- jaeckel(as.matrix(xq[ord,]), y[ord], fit0$coef, scores=scores, ...)
+## 20141211: set initial fit to null model if it has lower dispersion
+  betahat0 <- fit0$coef
+  if( disp(betahat0, xq, y, scores) > disp(rep(0,length(betahat0)), xq, y, scores) ) {
+    betahat0 <- rep(0, length(betahat0) )
+  }
+  ord <- order(y - xq%*%betahat0)
+##
+
+  fit <- jaeckel(as.matrix(xq[ord,]), y[ord], betahat0, scores=scores, ...)
   if( fit$convergence != 0 ) fit <- jaeckel(as.matrix(xq[ord,]), y[ord], jitter(fit$coef), scores=scores, ...)
   if( fit$convergence != 0 ) warning("rfit: Convergence status not zero in jaeckel")
   rm(ord)
