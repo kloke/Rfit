@@ -11,6 +11,7 @@ rfit.default <- function (formula, data, subset, yhat0 = NULL,
 #
 
   x <- model.matrix(attr(mf, "terms"), data = mf)
+  if( abs(max(x) - min(x)) < .Machine$double.eps ^ 0.5 ) stop("x cannot only contain an intercept")
   x1 <- as.matrix(x[,colnames(x)!='(Intercept)'])
   x1 <- as.matrix(cbind(rep(1,nrow(x1)),x1))
 
