@@ -38,6 +38,7 @@ drop.test <- function (fitF, fitR = NULL) {
       disp(fitF$betahat, fitF$x, fitF$y, fitF$scores)
     df1 <- pp1 - 1
   } else {
+    if( !all(abs( qr.fitted(fitF$qrx1,qr.Q(fitR$qrx1)) - qr.Q(fitR$qrx1) ) < .Machine$double.eps ^ 0.5 ) ) stop('Reduced model must be a subset of full model')
     rd <- disp(fitR$betahat, fitR$x, fitR$y, fitR$scores) - 
       disp(fitF$betahat, fitF$x, fitF$y, fitF$scores)
     df1 <- length(fitF$betahat) - length(fitR$betahat)
