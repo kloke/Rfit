@@ -38,7 +38,7 @@ rfit.default <- function (formula, data, subset, yhat0 = NULL,
 ##
 
   fit <- jaeckel(as.matrix(xq[ord,]), y[ord], betahat0, scores=scores, ...)
-  if( fit$convergence != 0 ) fit <- jaeckel(as.matrix(xq[ord,]), y[ord], jitter(fit$coef), scores=scores, ...)
+  if( fit$convergence != 0 ) fit <- jaeckel(as.matrix(xq[ord,]), y[ord], jitter(fit$par), scores=scores, ...)
   if( fit$convergence != 0 ) warning("rfit: Convergence status not zero in jaeckel")
   rm(ord)
   betahat <- fit$par
