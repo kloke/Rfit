@@ -17,7 +17,7 @@
 #' plot(x,rstudent(fit)) ; abline(h=c(-2,2))
 #' 
 #' @export rstudent.rfit
-rstudent.rfit <- function (model,...) {
+"rstudent.rfit" <- function (model,...) {
   fit<-model
   ehat <- fit$resid
   n <- length(ehat)

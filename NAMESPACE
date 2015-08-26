@@ -8,3 +8,22 @@ import(
   methods,
   quantreg
 )
+
+importFrom("stats","rstudent")
+importFrom("stats", "fitted.values", "hat", "lsfit", "mad", "median",
+     "model.frame", "model.matrix", "model.response", "optim",
+     "pf", "printCoefmat", "pt", "qnorm", "qt", "qtukey",
+     "residuals", "sd", "vcov")
+
+S3method(print,drop.test)
+S3method(print,oneway.rfit) 
+S3method(print,raov)
+S3method(print,rfit)
+S3method(print,summary.oneway.rfit) 
+S3method(print,summary.rfit) 
+S3method(rfit,default)
+S3method(rstudent,rfit)
+S3method(summary,oneway.rfit) 
+S3method(summary,rfit) 
+S3method(vcov,rfit)
+
