@@ -6,12 +6,12 @@
 An estimate of the scale parameter taustar =  1/(2*f(0)) is needed for the standard error of the intercept in rank-based regression.
 }
 \usage{
-taustar(resid, p, conf = 0.95)
+taustar(e, p, conf = 0.95)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{resid}{  full model residuals }
-  \item{p}{  is the number of regression coefficients (without the intercept) }
+  \item{e}{n x 1 vector of full model residuals }
+  \item{p}{is the number of regression coefficients (without the intercept) }
   \item{conf}{ confidence level of CI used }
 }
 \details{
@@ -34,24 +34,6 @@ Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statisti
 \seealso{ \code{\link{rfit}} }
 \examples{
 ##  This is an internal function.  See rfit for user-level examples.
-
-## The function is currently defined as
-function (resid, p, conf = 0.95) 
-{
-    n = length(resid)
-    zc = qnorm((1 + conf)/2)
-    c1 = (n/2) - ((sqrt(n) * zc)/2) - 0.5
-    ic1 = floor(c1)
-    if (ic1 < 0) {
-        ic1 = 0
-    }
-    z = sort(resid)
-    l = z[ic1 + 1]
-    u = z[n - ic1]
-    df = sqrt(n)/sqrt(n - p - 1)
-    taustar = df * ((sqrt(n) * (u - l))/(2 * zc))
-    taustar
-  }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
