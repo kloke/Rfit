@@ -74,7 +74,9 @@ rfit.default <- function (formula, data, subset, yhat0 = NULL,
 
   res <- list( coefficients = bhat, residuals = ehat, fitted.values = yhat, 
     scores = scores, x = x, y = y, tauhat = tauhat, qrx1=qrx,
-    taushat = taushat, symmetric = symmetric, betahat = bhat,disp=fit$value)
+    taushat = taushat, symmetric = symmetric, betahat = bhat,disp=fit$value,
+    D1 = disp(bhat,x,y,scores),D0 = disp(rep(0,length(bhat)),x,y,scores)
+  )
   res$call <- call
   class(res) <- list("rfit")
   res

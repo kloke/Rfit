@@ -24,7 +24,8 @@
   p <- fit$qrx1$rank-1
   sigmahat <- mad(ehat)
   deltas <- sum(abs(ehat))/(n - p)
-  delta <- disp(fit$betahat, fit$x, fit$y, fit$scores)/(n - p)
+#  delta <- disp(fit$betahat, fit$x, fit$y, fit$scores)/(n - p)
+  delta <- model$D1/(n - p)
   k2 <- (fit$tauhat/sigmahat)^2 * (2 * delta/fit$tauhat - 1)
   if (fit$symmetric) {
     h <- hat(fit$x)

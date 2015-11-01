@@ -34,13 +34,15 @@ drop.test <- function (fitF, fitR = NULL) {
   pp1 <- fitF$qrx1$rank
 
   if (is.null(fitR)) {
-    rd <- disp(rep(0, ncol(fitF$x)), fitF$x, fitF$y, fitF$scores) - 
-      disp(fitF$betahat, fitF$x, fitF$y, fitF$scores)
+#    rd <- disp(rep(0, ncol(fitF$x)), fitF$x, fitF$y, fitF$scores) - 
+#      disp(fitF$betahat, fitF$x, fitF$y, fitF$scores)
+    rd <- fitF$D0 - fitF$D1
     df1 <- pp1 - 1
   } else {
     if( !all(abs( qr.fitted(fitF$qrx1,qr.Q(fitR$qrx1)) - qr.Q(fitR$qrx1) ) < .Machine$double.eps ^ 0.5 ) ) stop('Reduced model must be a subset of full model')
-    rd <- disp(fitR$betahat, fitR$x, fitR$y, fitR$scores) - 
-      disp(fitF$betahat, fitF$x, fitF$y, fitF$scores)
+#    rd <- disp(fitR$betahat, fitR$x, fitR$y, fitR$scores) - 
+#      disp(fitF$betahat, fitF$x, fitF$y, fitF$scores)
+    rd <- fitR$D1 - fitF$D1
     df1 <- length(fitF$betahat) - length(fitR$betahat)
   }
 
