@@ -16,7 +16,7 @@
 #' summary(fit)
 #' 
 #' @export summary.rfit
-summary.rfit <- function (object,...) {
+summary.rfit <- function (object,overall.test='wald',...) {
 
   tauhat <- object$tauhat
   n<-length(object$y)
@@ -27,10 +27,17 @@ summary.rfit <- function (object,...) {
   pval <- 2 * pt(-abs(tstat), n - pp1)
   coef <- cbind(est, ses, tstat, pval)
   colnames(coef) <- c("Estimate", "Std. Error", "t.value","p.value")
-  dt <- drop.test(object)
-  R2 <- (dt$df1/dt$df2 * dt$F)/(1 + dt$df1/dt$df2 * dt$F)
-  ans <- list(coefficients = coef, dropstat = dt$F, droppval = dt$p.value, 
-    R2 = R2)
+  if( overall.test == 'wald' ) {
+    wt <- wald.test.overall(fit)
+    ans <- list(coefficients = coef, waldstat = wt$F, waldpval = wt$p.value)
+  } 
+  if( overall.test == 'drop') {
+    dt <- drop.test(object)
+    R2 <- (dt$df1/dt$df2 * dt$F)/(1 + dt$df1/dt$df2 * dt$F)
+    ans <- list(coefficients = coef, dropstat = dt$F, droppval = dt$p.value, 
+      R2 = R2)
+  }
+  ans$overall.test <- overall.test
   ans$call <- object$call
   class(ans) <- "summary.rfit"
   ans
