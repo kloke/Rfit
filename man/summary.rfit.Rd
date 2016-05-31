@@ -6,16 +6,20 @@
 Provides a summary similar to the traditional least squares fit.
 }
 \usage{
-\method{summary}{rfit}(object,...)
+\method{summary}{rfit}(object,overall.test,...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
 \item{object}{an object of class 'rfit', usually, a result of a call to 'rfit'}
+\item{overall.test}{either 'wald' or 'drop'}
 \item{\dots}{ additional arguments }
 }
-%\details{
-  %~~ If necessary, more details than the description above ~~
-%}
+\details{
+Provides summary statistics based on a rank-based fit.
+A table of estimates, standard errors, t-ratios, and p-values are provided.
+An overall test of the explantory variables is provided; the default is to use a Wald test.
+A drop in dispersion test is also availble in which case a robust R^2 is provided as well.
+}
 %\value{
   %~Describe the value returned
   %If it is a LIST, use
@@ -36,4 +40,5 @@ Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statisti
 data(baseball)
 fit<-rfit(weight~height,data=baseball)
 summary(fit)
+summary(fit,overall.test='drop')
 }
