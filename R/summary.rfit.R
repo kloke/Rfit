@@ -28,7 +28,7 @@ summary.rfit <- function (object,overall.test='wald',...) {
   coef <- cbind(est, ses, tstat, pval)
   colnames(coef) <- c("Estimate", "Std. Error", "t.value","p.value")
   if( overall.test == 'wald' ) {
-    wt <- wald.test.overall(fit)
+    wt <- wald.test.overall(object)
     ans <- list(coefficients = coef, waldstat = wt$F, waldpval = wt$p.value)
   } 
   if( overall.test == 'drop') {
