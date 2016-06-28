@@ -6,7 +6,7 @@
 Uses the built-in function \code{optim} to minimize Jaeckel's dispersion function.  Alternates between \code{CG} and \code{BFGS} steps and initially takes a number of IRLS steps.
 }
 \usage{
-jaeckel(x, y, beta0 = rq(y ~ x)$coef[2:(ncol(x) + 1)], scores = Rfit::wscores,...)
+jaeckel(x, y, beta0 = lm(y ~ x)$coef[2:(ncol(x) + 1)], scores = Rfit::wscores,...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
