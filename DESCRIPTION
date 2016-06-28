@@ -11,5 +11,5 @@ Description: R estimation and inference for linear models.  Estimation
 License: GPL (>= 2)
 LazyLoad: yes
 LazyData: yes
-Depends: methods, quantreg
+Depends: methods
 Suggests: testthat

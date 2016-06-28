@@ -23,7 +23,7 @@ rfit.default <- function (formula, data, subset, yhat0 = NULL,
   xq<-as.matrix(Q[,2:qrx$rank])
 
   if( is.null(yhat0) ) {
-    fit0<-suppressWarnings(rq(y~xq-1))
+    fit0<-suppressWarnings(lm(y~xq-1))
   } else {
     fit0 <- lsfit(xq, yhat0, intercept = FALSE)
   }

@@ -63,7 +63,7 @@
 #'   }
 #' 
 #' @export jaeckel
-jaeckel <- function (x, y, beta0 = rq(y ~ x)$coef[2:(ncol(x) + 1)], 
+jaeckel <- function (x, y, beta0 = lm(y ~ x)$coef[2:(ncol(x) + 1)], 
   scores = Rfit::wscores, ...) {
 
   scrs <- getScores(scores,seq_len(length(y))/(length(y)+1))
