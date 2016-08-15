@@ -2,7 +2,7 @@ Package: Rfit
 Type: Package
 Title: Rank Estimation for Linear Models
 Version: 0.23.0
-Date: 2016-06-01
+Date: 2016-08-15
 Author: John Kloke, Joseph McKean
 Maintainer: John Kloke <kloke@biostat.wisc.edu>
 Description: R estimation and inference for linear models.  Estimation
