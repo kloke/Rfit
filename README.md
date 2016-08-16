@@ -5,8 +5,8 @@ Rfit: Rank-based estimation for linear models
 * Rfit may be installed from 
 	* [CRAN](https://cran.r-project.org/) e.g. `install.packages('Rfit')`
 	* [github](https://github.com/) e.g. `install_github('kloke/Rfit')` 
-		* requires [devtools](https://cran.r-project.org/web/packages/devtools/index.html)
-* Rfit no longer requires the package [quantreq](https://cran.r-project.org/web/packages/quantreg/index.html)
+		* requires [devtools](https://cran.r-project.org/package=devtools)
+* Rfit no longer requires the package [quantreq](https://cran.r-project.org/package=quantreq)
   The inital fit is now based on least squares to avoid additional dependencies.  One may still use quantreg to obtain the inital fit which will ensure the robustnesses of the result.
 
 CRAN releases are about once a year while github updates are more frequent.
