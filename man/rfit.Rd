@@ -69,6 +69,11 @@ data(baseball)
 data(wscores)
 fit<-rfit(weight~height,data=baseball)
 summary(fit)
+
+### set the starting value
+x1 <- runif(47); x2 <- runif(47); y <- 1 + 0.5*x1 + rnorm(47)
+# based on a fit to a sub-model
+rfit(y~x1+x2,yhat0=fitted.values(rfit(y~x1)))
 }
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the
