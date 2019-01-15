@@ -4,9 +4,9 @@ wald.test.overall <- function(fit) {
   betahat <- coef(fit)[-1]
   v <- vcov(fit)[2:p,2:p]
 
-  teststat <- t(betahat)%*%solve(v)%*%betahat
+  df1 <- p - 1
+  teststat <- t(betahat)%*%solve(v)%*%betahat/df1
   df2 <- length(fit$y) - fit$qrx1$rank
-  df1 <- p
 
   pval <- pf(teststat,df1,df2,lower.tail=FALSE)
 
