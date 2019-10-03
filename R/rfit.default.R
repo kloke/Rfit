@@ -59,6 +59,16 @@ rfit.default <- function (formula, data, subset, yhat0 = NULL,
 
   bhat <- lsfit(x,yhat,intercept=FALSE)$coef
 
+# check null model fit 
+  alphahat0 <- ifelse(symmetric, signedrank(y), median(y))
+  bhat0 <- c(alphahat0,rep(0,length(bhat)-1))
+
+  if( disp(bhat, x, y, scores) > disp(bhat0, x, y, scores) ) {
+    bhat <- bhat0
+    ehat <- y - alphahat0
+    yhat <- rep(alphahat0,length(y))
+  }
+
   r.gettau <- switch(TAU,
     F0 = gettauF0,
     R = gettau,
@@ -75,7 +85,7 @@ rfit.default <- function (formula, data, subset, yhat0 = NULL,
   res <- list( coefficients = bhat, residuals = ehat, fitted.values = yhat, 
     scores = scores, x = x, y = y, tauhat = tauhat, qrx1=qrx,
     taushat = taushat, symmetric = symmetric, betahat = bhat,disp=fit$value,
-    D1 = disp(bhat,x,y,scores),D0 = disp(rep(0,length(bhat)),x,y,scores)
+    D1 = disp(bhat,x,y,scores),D0 = disp(bhat0,x,y,scores)
   )
   res$call <- call
   class(res) <- list("rfit")

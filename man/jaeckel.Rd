@@ -6,7 +6,7 @@
 Uses the built-in function \code{optim} to minimize Jaeckel's dispersion function.  Alternates between \code{CG} and \code{BFGS} steps and initially takes a number of IRLS steps.
 }
 \usage{
-jaeckel(x, y, beta0 = lm(y ~ x)$coef[2:(ncol(x) + 1)], scores = Rfit::wscores,...)
+jaeckel(x, y, beta0 = lm(y ~ x)$coef[2:(ncol(x) + 1)], scores = Rfit::wscores, control = NULL,...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -14,11 +14,14 @@ jaeckel(x, y, beta0 = lm(y ~ x)$coef[2:(ncol(x) + 1)], scores = Rfit::wscores,..
   \item{y}{ n by 1 response vector }
   \item{beta0}{ intial estimate }
   \item{scores}{ object of class 'scores' }
+  \item{control}{ control passed to fitting routine }
   \item{\dots}{addtional arguments to be passed to fitting routine }
 }
 \details{
-This function is meant to mimic the minization algorithm implemented in RGLM (Kapenga, et. al. 1988). The main loop of the function alternates between CG and BFGS estimation methods.  To speed up convergence, it first takes a number of iterated reweighted least squares (IRLS) steps which generally gets close to the solution in a small number of steps.  
-Using IRLS for rank regression was first considered by Cheng and Hettmansperger (1983).  See also Sievers and Abebe (2004).
+Function uses \code{optim} with method set to BFGS to minimize Jaeckel's dispersion function.
+If control is not specified at the function call, the relative tolerance (reltol) is set to .Machine$double.eps^(3/4)
+maximum number of iterations is set to 200.
+See \code{optim}.
 }
 \value{
 Results of \code{optim} are returned.

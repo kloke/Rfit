@@ -64,7 +64,19 @@
 #' 
 #' @export jaeckel
 jaeckel <- function (x, y, beta0 = lm(y ~ x)$coef[2:(ncol(x) + 1)], 
-  scores = Rfit::wscores, ...) {
+  scores = Rfit::wscores, control=NULL, ...) {
+  
+# set max iter and/or convergence tolerance
+if(is.null(control)) {
+  control <- list(maxit=200,reltol=.Machine$double.eps^(3/4))
+} else {
+  if(is.null(control$reltol)) {
+    control$reltol<-.Machine$double.eps^(3/4)
+  }
+  if(is.null(control$maxit)) {
+     control$maxit<-200
+  }
+}
 
   scrs <- getScores(scores,seq_len(length(y))/(length(y)+1))
 
@@ -85,10 +97,10 @@ jaeckel <- function (x, y, beta0 = lm(y ~ x)$coef[2:(ncol(x) + 1)],
   ystar <- y/sd.y
 
   fit0 <- optim(beta0/sd.y, j.disp, method = "BFGS", x = x, y = ystar, scrs=scrs,
-    gr=j.grad,scores=scores,...)
+    gr=j.grad,scores=scores,control=control,...)
 
   optim(fit0$par*sd.y, j.disp, method = "BFGS", x = x, y = y, scrs=scrs,
-    gr=j.grad,scores=scores,...)
+    gr=j.grad,scores=scores,control=control,...)
 
 }
 

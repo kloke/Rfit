@@ -29,7 +29,9 @@
 #' drop.test(fitF,fitR)
 #' 
 #' @export drop.test
-drop.test <- function (fitF, fitR = NULL) {
+drop.test <- function (fitF, fitR = NULL){
+
+  EPS<-.Machine$double.eps*100  # RD smaller than this considered 0
 
   pp1 <- fitF$qrx1$rank
 
@@ -46,12 +48,15 @@ drop.test <- function (fitF, fitR = NULL) {
     df1 <- length(fitF$betahat) - length(fitR$betahat)
   }
 
+  if( abs(rd) < EPS ) rd <- 0
+
   if( rd < 0 ) stop( "drop.test: negative reduction in dispersion found\n",
 	"try starting full model at reduced model\n",
 	"see help(drop.test) for more information" )
 
   df2 <- length(fitF$y) - pp1
   test <- (rd/df1)/(fitF$tauhat/2)
+#  if( abs(test) < EPS ) test <- 0
   pval <- 1 - pf(test, df1, df2)
   ans <- list(F = test, p.value = pval, RD = rd, tauhat = fitF$tauhat, 
     df1 = df1, df2 = df2)

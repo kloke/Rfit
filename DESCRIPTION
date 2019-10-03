@@ -1,15 +1,15 @@
 Package: Rfit
 Type: Package
-Title: Rank Estimation for Linear Models
-Version: 0.23.1
-Date: 2016-11-10
+Title: Rank-based Estimation for Linear Models
+Version: 0.23.4
+Date: 2019-10-03
 Author: John Kloke, Joseph McKean
-Maintainer: John Kloke <kloke@biostat.wisc.edu>
-Description: R estimation and inference for linear models.  Estimation
+Maintainer: John Kloke
+Description: Rank-based (R) estimation and inference for linear models.  Estimation
         is for general scores and a library of commonly used score
         functions is included.
 License: GPL (>= 2)
 LazyLoad: yes
 LazyData: yes
 Depends: methods
-Suggests: testthat
+Suggests: testthat, quantreg
