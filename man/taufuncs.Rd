@@ -3,6 +3,7 @@
 \alias{hstar}
 \alias{looptau}
 \alias{pairup}
+\alias{nscale}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Internal Functions for Estimating tau }
 \description{
