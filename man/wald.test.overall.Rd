@@ -9,9 +9,12 @@
 \references{
 Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 }
-\author{John Kloke \email{kloke@biostat.wisc.edu}}
+\author{John Kloke}
 \examples{
 x <- rnorm(47)
 y <- rnorm(47)
 wald.test.overall(rfit(y~x))
 }
+\keyword{htest}
+\keyword{robust}
+\keyword{regression}

@@ -19,9 +19,6 @@ Salaries of 176 professional baseball players for the 1987 season.
     \item{\code{logSalary}}{Log of the base salary in dollars}
   }
 }
-%\details{
-  %~~ If necessary, more details than the __description__ above ~~
-%}
 \source{
 http://lib.stat.cmu.edu/datasets/baseball.data
 }

@@ -1,7 +1,7 @@
 \name{baseball}
 \alias{baseball}
 \docType{data}
-\title{The World Famous Baseball Data}
+\title{Baseball Card Data}
 \description{
 These data come from the back-side of 59 baseball cards that Carrie had.
 }
@@ -17,14 +17,9 @@ These data come from the back-side of 59 baseball cards that Carrie had.
     \item{\code{average}}{ERA if the player is a pitcher and his batting average if the player is a fielder}
   }
 }
-%\details{
-  %~~ If necessary, more details than the __description__ above ~~
-%}
 \source{
 Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 }
-%\references{
-%}
 \examples{
 data(baseball)
 wilcox.test(height~field,data=baseball)

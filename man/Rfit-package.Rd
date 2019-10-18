@@ -22,7 +22,7 @@ LazyLoad: \tab yes\cr
 \author{
 John Kloke, Joesph McKean
 
-Maintainer: John Kloke <kloke@biostat.wisc.edu>
+Maintainer: John Kloke <johndkloke@gmail.com>
 }
 \references{
 Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.

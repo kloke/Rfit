@@ -42,6 +42,6 @@ Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statisti
  }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ anova }
+\keyword{ design }
 \keyword{ nonparametric }
 \keyword{ robust }

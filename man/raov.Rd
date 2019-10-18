@@ -55,6 +55,6 @@ raov(logSurv~Poison+Treatment,data=BoxCox)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ anova }
+\keyword{ design }
 \keyword{ nonparametric }
 \keyword{ robust }

@@ -42,7 +42,7 @@ See examples.
   %\item{comp2 }{Description of 'comp2'}
 %  ...
 }
-\author{ John Kloke \email{kloke@biostat.wisc.edu}}
+\author{John Kloke, Joseph McKean}
 
 \references{ 
 Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
@@ -61,3 +61,5 @@ drop.test(fitF,fitR)
 fitF<-rfit(y~x1+x2,yhat0=fitR$fitted)
 drop.test(fitF,fitR)
 }
+\keyword{robust}
+\keyword{htest}

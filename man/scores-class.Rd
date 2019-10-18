@@ -34,7 +34,7 @@ Objects can be created by calls of the form \code{new("scores", ...)}.
 \references{
 Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 }
-\author{ John Kloke \email{kloke@biostat.wisc.edu}}
+\author{ John Kloke }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 

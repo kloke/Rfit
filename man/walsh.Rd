@@ -11,9 +11,6 @@ walsh(x)
 \arguments{
   \item{x}{ A numeric vector  }
 }
-%\details{
-  %~~ If necessary, more details than the description above ~~
-%}
 \value{
 The Walsh averages.
 }
@@ -24,7 +21,7 @@ Hollander, M. and Wolfe, D.A. (1999), \emph{Nonparametric Statistical Methods}, 
 }
 %\note{ ~~further notes~~ 
 
-\author{ John Kloke \email{kloke@biostat.wisc.edu}}
+\author{ John Kloke, Joseph McKean }
 
  %~Make other sections like Warning with \section{Warning }{....} ~
 %}

@@ -28,7 +28,7 @@
 Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 }
 
-\author{ John Kloke \email{kloke@biostat.wisc.edu}}
+\author{ John Kloke, Joseph McKean}
 \seealso{ \code{\link{rfit}}}
 \examples{
 x<-runif(47)
@@ -40,3 +40,4 @@ plot(x,rstudent(fit)) ; abline(h=c(-2,2))
 % R documentation directory.
 %\keyword{ ~kwd1 }
 %\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{robust}

@@ -12,9 +12,6 @@ signedrank(x)
 \arguments{
   \item{x}{ numeric vector } 
 }
-%\details{
-  %~~ If necessary, more details than the description above ~~
-%}
 \value{
   Returns the median of the Walsh averages.
 }
@@ -24,12 +21,8 @@ Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statisti
 Hollander, M. and Wolfe, D.A. (1999), \emph{Nonparametric Statistical Methods}, New York: Wiley.
 
 }
-\author{ John Kloke \email{kloke@biostat.wisc.edu}}
+\author{ John Kloke, Joseph McKean }
 
-%\note{ ~~further notes~~ 
-
- %~Make other sections like Warning with \section{Warning }{....} ~
-%}
 \seealso{ \code{\link{walsh}}}
 \examples{
 

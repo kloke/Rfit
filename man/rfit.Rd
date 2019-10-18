@@ -53,15 +53,11 @@ Jaeckel, L. A. (1972). Estimating regression coefficients by minimizing the disp
 
 Jureckova, J. (1971). Nonparametric estimate of regression coefficients. \emph{Annals of Mathematical Statistics}, 42, 1328 - 1338.
 }
-\author{ John Kloke \email{kloke@biostat.wisc.edu}}
-%\note{ ~~further notes~~ 
-%
-% ~Make other sections like Warning with \section{Warning }{....} ~
-%}
-%\seealso{ ~~objects to See Also as \code{\link{help}}, ~~~ }
+\author{ John Kloke, Joesph McKean }
 \seealso{
-%~~objects to See Also as \code{\link{help}}, ~~~
 \code{\link{summary.rfit}}
+\code{\link{drop.test}}
+\code{\link{rstudent.rfit}}
 }
 
 \examples{
@@ -76,8 +72,6 @@ x1 <- runif(47); x2 <- runif(47); y <- 1 + 0.5*x1 + rnorm(47)
 rfit(y~x1+x2,yhat0=fitted.values(rfit(y~x1)))
 }
 
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
 \keyword{nonparametric}
 \keyword{robust}
 \keyword{regression}

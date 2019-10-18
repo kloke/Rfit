@@ -38,7 +38,7 @@ Kapenga, J. A., McKean, J. W., and Vidmar, T. J. (1988), \emph{RGLM: Users Manua
 Sievers, J. and Abebe, A. (2004), Rank Estimation of Regression Coefficients Using Iterated Reweighted Least Squares, \emph{Journal of Statistical Computation and Simulation}, 74, 821-831.
 
 }
-\author{ John Kloke \email{kloke@biostat.wisc.edu}}
+\author{ John Kloke }
 
 \seealso{ \code{\link{optim}}, \code{\link{rfit}} }
 \examples{

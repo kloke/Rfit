@@ -25,14 +25,28 @@ Wilcoxon scores are optimal when the underlying error distribution is logistic.
 Normal scores are optimal when the data are normally distributed.
 Log-rank scores are optimal when the data are from an exponential distribution, e.g. in a proportional hazards model.
 Log-Generalized F scores can also be used in the analysis of survival data (see Hettmansperger and McKean p. 233).
+
+bentscores1 are recommended for right-skewed distributions.
+bentscores2 are recommended for light-tailed distributions.
+bentscores3 are recommended for left-skewed distributions.
+bentscores4 are recommended for heavy-tailed distributions.
 }
 \references{
 Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 }
 \examples{
+u <- seq(0.01,0.99,by=0.01)
+plot(u,getScores(wscores,u),type='l',main='Wilcoxon Scores')
+plot(u,getScores(nscores,u),type='l',main='Normal Scores')
+
 data(wscores)
-x<-runif(10)
-y<-rlogis(10)
+x<-runif(50)
+y<-rlogis(50)
 rfit(y~x,scores=wscores)
+
+x<-rnorm(50)
+y<-rnorm(50)
+rfit(y~x,scores=nscores)
+
 }
 \keyword{datasets}

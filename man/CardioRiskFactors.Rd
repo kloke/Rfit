@@ -30,7 +30,6 @@ There are 474 men and 524 women aged 25-64.
 }
 \details{
 Data set and description taken from Heritier et. al. (2009) (c.f. Conen et. al. 2004).
-Some not discussed (in Section 3.5) of the text and their persummed meaning is listed followed by (?).
 }
 \source{
 Heritier, S., Cantoni, E., Copt, S., and Victoria-Feser, M. (2009), \emph{Robust Methods in Biostatistics}, New York: John Wiley \& Sons.
@@ -39,8 +38,6 @@ Conen, D., Wietlisbach, V., Bovet, P., Shamlaye, C., Riesen, W., Paccaud, F., an
 \emph{BMC Public Health},
 \url{http://www.biomedcentral.com/1471-2458/4/9}.
 }
-%\references{
-%}
 \examples{
 data(CardioRiskFactors)
 fitF<-rfit(Uric~bmi+sys+choles+ldl+sex+smok+alco+apoa+trig+age,data=CardioRiskFactors)

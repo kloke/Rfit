@@ -28,7 +28,7 @@ Jaeckel, L. A. (1972). Estimating regression coefficients by minimizing the disp
 
 Jureckova, J. (1971). Nonparametric estimate of regression coefficients. \emph{Annals of Mathematical Statistics}, 42, 1328 - 1338.
 }
-\author{ John Kloke \email{kloke@biostat.wisc.edu}}
+\author{ John Kloke }
 
 %\note{
 %%  ~~further notes~~
