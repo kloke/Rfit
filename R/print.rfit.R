@@ -9,7 +9,7 @@
 #' @param x An object to be printed
 #' @param digits number of digits to display
 #' @param \dots additional arguments to be passed to \code{print}
-#' @author John Kloke \email{kloke@@biostat.wisc.edu}
+#' @author John Kloke 
 #' @seealso \code{\link{rfit}}, \code{\link{summary.rfit}},
 #' \code{\link{drop.test}}
 #' @export print.rfit

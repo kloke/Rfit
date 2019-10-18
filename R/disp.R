@@ -8,7 +8,7 @@
 #' @param x n by p design matrix
 #' @param y n by 1 response vector
 #' @param scores an object of class scores
-#' @author John Kloke \email{kloke@@biostat.wisc.edu}
+#' @author John Kloke 
 #' @seealso %~~objects to See Also as \code{\link{help}}, ~~~
 #' \code{\link{summary.rfit}}
 #' @references Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust

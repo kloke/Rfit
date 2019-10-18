@@ -1,7 +1,7 @@
 #' Drop (Reduction) in Dispersion Test
 #' 
 #' Given two full model fits, this function performs a reduction in disperion
-#' test.
+#' test.  Given one fit, returns the test comparing to the null model.
 #' 
 #' Rank-based inference proceedure analogous to the traditional (LS) reduced
 #' model test.
@@ -15,7 +15,7 @@
 #' the full model residuals)} \item{df1}{numerator degrees of freedom}
 #' \item{df2}{denominator degrees of freedom} %\item{comp1 }{Description of
 #' 'comp1'} %\item{comp2 }{Description of 'comp2'} % ...
-#' @author John Kloke \email{kloke@@biostat.wisc.edu}
+#' @author John Kloke 
 #' @seealso \code{\link{rfit}}
 #' @references Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust
 #' Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
@@ -31,7 +31,7 @@
 #' @export drop.test
 drop.test <- function (fitF, fitR = NULL){
 
-  EPS<-.Machine$double.eps*100  # RD smaller than this considered 0
+  EPS<-.Machine$double.eps*100  # abs(RD) smaller than this considered 0
 
   pp1 <- fitF$qrx1$rank
 

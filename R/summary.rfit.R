@@ -6,7 +6,7 @@
 #' @param object an object of class 'rfit', usually, a result of a call to
 #' 'rfit'
 #' @param \dots additional arguments
-#' @author John Kloke \email{kloke@@biostat.wisc.edu}
+#' @author John Kloke 
 #' @references Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust
 #' Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 #' @examples

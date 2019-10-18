@@ -1,4 +1,4 @@
-useDynLib("Rfit")
+useDynLib(Rfit, .registration=TRUE)
 
 # Export all names
 exportPattern(".")

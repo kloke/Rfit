@@ -33,7 +33,7 @@
 #' parameter tau} \item{taushat}{estimated value of the scale parameter tau_s}
 #' %\item{symmetric}{ \item{betahat}{estimated regression coefficents}
 #' \item{call}{Call to the function}
-#' @author John Kloke \email{kloke@@biostat.wisc.edu}
+#' @author John Kloke 
 #' @seealso %~~objects to See Also as \code{\link{help}}, ~~~
 #' \code{\link{summary.rfit}}
 #' @references Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust

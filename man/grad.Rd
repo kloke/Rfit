@@ -1,9 +1,9 @@
 \name{grad}
 \alias{grad}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{ Calculate the Gradiant of Jaekel's Dispersion Function }
+\title{ Calculate the Gradiant of Jaeckel's Dispersion Function }
 \description{
- Calculate the Gradiant of Jaekel's Dispersion Function 
+ Calculate the Gradiant of Jaeckel's Dispersion Function 
 }
 \usage{
 grad(x, y, beta, scores)

@@ -303,7 +303,7 @@ NULL
 #' @docType package
 #' @author John Kloke, Joesph McKean
 #' 
-#' Maintainer: John Kloke <kloke@@biostat.wisc.edu>
+#' Maintainer: John Kloke <johndkloke@gmail.com>
 #' @references Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust
 #' Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 #' 
@@ -350,7 +350,7 @@ NULL
 #' @docType class
 #' @section Objects from the Class: Objects can be created by calls of the form
 #' \code{new("scores", ...)}.
-#' @author John Kloke \email{kloke@@biostat.wisc.edu}
+#' @author John Kloke 
 #' @seealso \code{\linkS4class{param}} %% ~~objects to See Also as
 #' \code{\link{~~fun~~}}, ~~~ %% ~~or \code{\linkS4class{CLASSNAME}} for links
 #' to other classes ~~~

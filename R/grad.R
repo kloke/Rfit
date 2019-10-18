@@ -1,14 +1,11 @@
-#' Calculate the Gradiant of Jaekel's Dispersion Function
-#' 
-#' Calculate the Gradiant of Jaekel's Dispersion Function
-#' 
+#' Calculate the Gradiant of Jaeckel's Dispersion Function
 #' 
 #' @param x n by p design matrix
 #' @param y n by 1 response vector
 #' @param beta p by 1 vector of regression coefficients
 #' @param scores an object of class scores
 #' @return The gradiant evaluated at beta.
-#' @author John Kloke \email{kloke@@biostat.wisc.edu}
+#' @author John Kloke 
 #' @references Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust
 #' Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 #' 

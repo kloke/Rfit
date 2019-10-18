@@ -6,7 +6,7 @@
 #' 
 #' @param x A numeric vector
 #' @return The Walsh averages.
-#' @author John Kloke \email{kloke@@biostat.wisc.edu}
+#' @author John Kloke 
 #' @seealso \code{\link{signedrank}}
 #' @references Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust
 #' Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
