@@ -43,11 +43,12 @@ if(is.null(control)) {
 
   scrs <- getScores(scores,seq_len(length(y))/(length(y)+1))
 
-  j.grad <- function (x, y, beta,scores,...) {
+  j.grad <- function (x, y, beta, scrs,...) {
     x <- as.matrix(x)
     e <- y - x %*% beta
-    r <- rank(e, ties.method = "first")/(length(e) + 1)
-    crossprod(x,-1*getScores(scores,r) )
+#    r <- rank(e, ties.method = "first")/(length(e) + 1)
+#    crossprod(x,-1*getScores(scores,r) )
+    crossprod(x[order(e),],-1*scrs )
   }
 
 
@@ -60,10 +61,10 @@ if(is.null(control)) {
   ystar <- y/sd.y
 
   fit0 <- optim(beta0/sd.y, j.disp, method = "BFGS", x = x, y = ystar, scrs=scrs,
-    gr=j.grad,scores=scores,control=control,...)
+    gr=j.grad,control=control,...)
 
   optim(fit0$par*sd.y, j.disp, method = "BFGS", x = x, y = y, scrs=scrs,
-    gr=j.grad,scores=scores,control=control,...)
+    gr=j.grad,control=control,...)
 
 }
 
