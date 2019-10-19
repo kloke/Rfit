@@ -6,12 +6,12 @@
 \title{ ~~ Methods for Function getScores  ~~}
 \description{
  ~~ Methods for function \code{getScores}  ~~
+Calculates the centered and scaled scores as used in rank-based analysis.
 }
 \section{Methods}{
 \describe{
-
 \item{\code{signature(object = "scores")}}{
-%%  ~~describe this method here~~
 }
 }}
+\seealso{\code{\link{rfit}}}
 \keyword{methods}

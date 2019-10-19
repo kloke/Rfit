@@ -1,10 +1,7 @@
 \name{confintadjust}
 \alias{confintadjust}
 \alias{confintadjust.methods}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-Confidence interval adjustment methods
-}
+\title{ Confidence interval adjustment methods }
 \description{
 Returns the critical value to be used in calculating adjusted confidence intervals.
 Currently provides methods for Boneferroni and Tukey for confidence interval adjustment methods as well as no adjustment.

@@ -1,6 +1,5 @@
 \name{disp}
 \alias{disp}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Jaeckel's Dispersion Function }
 \description{
 Returns the value of Jaeckel's dispersion function for given values of the regression coefficents.
@@ -23,13 +22,6 @@ R denotes rank
 and a(1) <= a(2) <= ... <= a(n) are the scores.
 The residuals (e_i i=1,...n) are calculated y - x beta.
 }
-%\value{
-  %~Describe the value returned
-  %If it is a LIST, use
-  %\item{comp1 }{Description of 'comp1'}
-  %\item{comp2 }{Description of 'comp2'}
-  %...
-%}
 \references{ 
 Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 
@@ -39,6 +31,8 @@ Jaeckel, L. A. (1972). Estimating regression coefficients by minimizing the disp
 
 
 \seealso{
+\code{\link{rfit}}
+\code{\link{drop.test}}
 \code{\link{summary.rfit}}
 }
 

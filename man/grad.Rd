@@ -30,15 +30,10 @@ Jureckova, J. (1971). Nonparametric estimate of regression coefficients. \emph{A
 }
 \author{ John Kloke }
 
-%\note{
-%%  ~~further notes~~
-%}
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-%\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-%}
+\seealso{
+\code{\link{disp}}
+}
 \examples{
 ## The function is currently defined as
 function (x, y, beta, scores) 
@@ -49,7 +44,3 @@ function (x, y, beta, scores)
     -t(x) \%*\% scores@phi(r)
   }
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-%\keyword{ ~kwd1 }
-%\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
