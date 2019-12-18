@@ -10,6 +10,7 @@ Internal Functions for K-Way analysis of variance
 }
 \description{
 These are internal functions used to construct the robust anova table.
+The function \code{raov} is the main program.
 }
 \usage{
 kwayr(levs, data)
@@ -31,10 +32,10 @@ data matrix in the form y, factor 1,..., factor k
 n x k matrix where the columns represent the levels of the k factors.
 }
 \item{levsind}{
-Ask Joe
+Internal parameter.
 }
 \item{permh}{
-Ask Joe
+Internal parameter.
 }
 \item{x}{
 n x k matrix where the columns represent the levels of the k factors.
@@ -43,10 +44,10 @@ n x k matrix where the columns represent the levels of the k factors.
 n x p full model design matrix 
 }
 \item{amat}{
-Ask Joe
+Internal parameter.
 }
 \item{k}{
-Ask Joe
+Internal parameter.
 }
 \item{sep}{
 Seperator used in pasteColsRfit 

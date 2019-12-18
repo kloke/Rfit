@@ -3,7 +3,7 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Function to Minimize Jaeckel's Dispersion Function}
 \description{
-Uses the built-in function \code{optim} to minimize Jaeckel's dispersion function.  Alternates between \code{CG} and \code{BFGS} steps and initially takes a number of IRLS steps.
+Uses the built-in function \code{optim} to minimize Jaeckel's dispersion function. 
 }
 \usage{
 jaeckel(x, y, beta0 = lm(y ~ x)$coef[2:(ncol(x) + 1)], 

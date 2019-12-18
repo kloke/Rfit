@@ -28,8 +28,8 @@ scores = Rfit::wscores, symmetric = FALSE, TAU = "F0", ...)
 \details{
 Rank-based estimation involves replacing the L2 norm of least squares estimation with a pseudo-norm which is a function of the ranks of the residuals.
 That is, in rank estimation, the usual notion of Euclidean distance is replaced with another measure of distance which is referred to as Jaeckel's (1972) dispersion function.
-Jaeckel's dispersion function depends on a score function and a library of commonly used score functions is included.  e.g. Wilcoxon and sign score functions.
-If an inital fit is not supplied (i.e. yhat0 = NULL) then inital fit is based on an LS fit via \code{lm}.
+Jaeckel's dispersion function depends on a score function and a library of commonly used score functions is included.  e.g. linear (Wilcoxon) and normal (Gaussian) scores.
+If an inital fit is not supplied (i.e. yhat0 = NULL) then inital fit is based on a LS fit.
 
 }
 \value{

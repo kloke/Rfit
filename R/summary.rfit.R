@@ -16,7 +16,7 @@
 #' summary(fit)
 #' 
 #' @export summary.rfit
-summary.rfit <- function (object,overall.test='all',...) {
+summary.rfit <- function (object,overall.test='drop',...) {
 
   tauhat <- object$tauhat
   n<-length(object$y)
