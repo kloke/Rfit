@@ -22,7 +22,7 @@ C
       INTEGER N,I,J,IP1,NM1,IWORK
       double precision ZN,CORR,X,XMAX,Y
       double precision Z(N),DERSC(N),S
-      ZN = DFLOAT(N)
+      ZN = DBLE(N)
       Y = 0.0D0
       XMAX = 0.0D0
       NM1 = N - 1

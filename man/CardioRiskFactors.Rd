@@ -32,11 +32,10 @@ There are 474 men and 524 women aged 25-64.
 Data set and description taken from Heritier et. al. (2009) (c.f. Conen et. al. 2004).
 }
 \source{
-Heritier, S., Cantoni, E., Copt, S., and Victoria-Feser, M. (2009), \emph{Robust Methods in Biostatistics}, New York: John Wiley \& Sons.
+Heritier, S., Cantoni, E., Copt, S., and Victoria-Feser, M. (2009), \emph{Robust Methods in Biostatistics}, New York: John Wiley and Sons.
 
 Conen, D., Wietlisbach, V., Bovet, P., Shamlaye, C., Riesen, W., Paccaud, F., and Burnier, M. (2004), Prevalence of hyperuricemia and relation of serum uric acid with cardiovascular risk factors in a developing country.
-\emph{BMC Public Health},
-\url{http://www.biomedcentral.com/1471-2458/4/9}.
+\emph{BMC Public Health}.
 }
 \examples{
 data(CardioRiskFactors)

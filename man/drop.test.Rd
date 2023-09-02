@@ -26,6 +26,9 @@ Both fits are based on a minimization routine.
 It is possible that resulting solutions are such that the fitF$disp > fitRdisp.
 We recommend starting the full model at the reduced model fit as a way to avoid this situation.
 See examples.
+
+Checks to see if models appear to be proper subsets.  
+The space spanned by the columns of the reduced model design matrix should be a subset of the space spanned by the columns of the full model design matrix.
 }
 \value{
 \item{F}{Value of the F test statistic}

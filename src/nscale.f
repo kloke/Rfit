@@ -49,8 +49,8 @@ c     double precision txsee
       double precision RESIDS(N),SCOPAR(5),SCORER(N),SCR1(N),TX
       double precision SCR2(N),WORK5(N),HCPARM
       INTEGER RANK,JRANK(N)
-      ZN = DFLOAT(N)
-      ZP = DFLOAT(RANK)
+      ZN = DBLE(N)
+      ZP = DBLE(RANK)
       IFLAG = 0
       PHI1 = SCORER(N)
       PHI0 = SCORER(1)
@@ -88,7 +88,7 @@ c984   format('after lin3',5e16.6)
           IFLAG = 22
         ENDIF
       ENDIF
-      TEEH = SOL/DSQRT(DFLOAT(N))
+      TEEH = SOL/DSQRT(DBLE(N))
       CALL HFUNCD(N,RESIDS,SCR1,ECDFAC,TEEH,HATT,0,XMAX)
 C
 C
@@ -100,7 +100,7 @@ C                 DEGREE OF FREEDOM CORRECTIONS
 C
 C                    STANDARD DEGREE OF FREEDOM CORRECTION
 C
-      TAUHAT = TAUHAT*DSQRT(DFLOAT(N)/DFLOAT(N - RANK))
+      TAUHAT = TAUHAT*DSQRT(DBLE(N)/DBLE(N - RANK))
 c      write(6,*) 'after stan df: tauhat',tauhat
 C
 C                    A HUBER TYPE CORRECTION

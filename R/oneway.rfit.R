@@ -34,7 +34,7 @@ oneway.rfit<-function(y,g,scores=Rfit::wscores,p.adjust='none') {
   ### R fit ###
   x<-model.matrix(~as.factor(g)-1)
   x<-x[,2:ncol(x)]
-  fit<-rfit(y~x,scores=scores)
+  fit<-rfit(y~x)
   deltahat<-fit$betahat[-1]
   tauhat<-fit$tauhat
 

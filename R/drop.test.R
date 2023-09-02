@@ -41,11 +41,17 @@ drop.test <- function (fitF, fitR = NULL){
     rd <- fitF$D0 - fitF$D1
     df1 <- pp1 - 1
   } else {
-    if( !all(abs( qr.fitted(fitF$qrx1,qr.Q(fitR$qrx1)) - qr.Q(fitR$qrx1) ) < .Machine$double.eps ^ 0.5 ) ) stop('Reduced model must be a subset of full model')
+
+    # check if reduced model design is a subspace of column space of full model 
+    Q_R <- qr.Q(fitR$qrx1)[,1:fitR$qrx1$rank]
+    if( !all(abs( qr.fitted(fitF$qrx1,Q_R) - Q_R ) < .Machine$double.eps ^ 0.5 ) ) stop('Not apparent reduced model is a proper subset of full model.  Check model assumptions.')
+#    if( !all(abs( qr.fitted(fitF$qrx1,qr.Q(fitR$qrx1)) - qr.Q(fitR$qrx1) ) < .Machine$double.eps ^ 0.5 ) ) warning('Not apparent reduced model is a proper subset of full model.  Check model assumptions.')
 #    rd <- disp(fitR$betahat, fitR$x, fitR$y, fitR$scores) - 
 #      disp(fitF$betahat, fitF$x, fitF$y, fitF$scores)
+
     rd <- fitR$D1 - fitF$D1
     df1 <- length(fitF$betahat) - length(fitR$betahat)
+    if(df1 < 1) stop('Not positive integer value of numerator degrees of freedom found.  Check function call or reduced model assumptions.')
   }
 
   if( abs(rd) < EPS ) rd <- 0
