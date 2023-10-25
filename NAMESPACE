@@ -26,4 +26,4 @@ S3method(rstudent,rfit)
 S3method(summary,oneway.rfit) 
 S3method(summary,rfit) 
 S3method(vcov,rfit)
-
+S3method(confint,rfit)
