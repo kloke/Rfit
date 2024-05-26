@@ -17,7 +17,7 @@ disp(beta, x, y, scores)
 Returns the value of Jaeckel's disperion function evaluated 
 at the value of the parameters in the function call.
 That is,
-sum_{i=1}^n a(R(e_i)) * e_i where 
+\eqn{sum_{i=1}^n a(R(e_i)) * e_i} where 
 R denotes rank
 and a(1) <= a(2) <= ... <= a(n) are the scores.
 The residuals (e_i i=1,...n) are calculated y - x beta.

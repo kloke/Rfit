@@ -13,7 +13,7 @@ These are internal functions used to construct the robust anova table.
 The function \code{raov} is the main program.
 }
 \usage{
-kwayr(levs, data)
+kwayr(levs, data,...)
 cellx(X)
 khmat(levsind,permh)
 pasteColsRfit(x,sep="")
@@ -52,6 +52,10 @@ Internal parameter.
 \item{sep}{
 Seperator used in pasteColsRfit 
 }
+  \item{\dots}{
+additional arguments
+}
+
 
 }
 %\details{

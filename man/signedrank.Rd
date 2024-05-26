@@ -1,6 +1,5 @@
 \name{signedrank}
 \alias{signedrank}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Signed-Rank Estimate of Location (Intercept) }
 \description{
 Returns the signed-rank estimate of intercept with is equivalent to the Hodges-Lehmann estimate of the residuals.
@@ -8,7 +7,6 @@ Returns the signed-rank estimate of intercept with is equivalent to the Hodges-L
 \usage{
 signedrank(x)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{ numeric vector } 
 }

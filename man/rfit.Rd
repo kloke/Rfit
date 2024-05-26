@@ -10,7 +10,8 @@ Minimizes Jaeckel's dispersion function to obtain a rank-based solution for line
 rfit(formula, data = list(), ...)
 %rfit.formula(formula, data = list(), ...)
 \method{rfit}{default}(formula, data, subset, yhat0 = NULL, 
-scores = Rfit::wscores, symmetric = FALSE, TAU = "F0", ...)
+scores = Rfit::wscores, symmetric = FALSE, TAU = "F0", 
+betahat0 = NULL, ...)
 
 }
 %- maybe also 'usage' for other objects documented here.
@@ -18,19 +19,21 @@ scores = Rfit::wscores, symmetric = FALSE, TAU = "F0", ...)
   \item{formula}{an object of class formula }
   \item{data}{ an optional data frame}
   \item{subset}{ an optional argument specifying the subset of observations to be used}
-  \item{yhat0}{ an n by vector of initial fitted values, default is NULL}
+  \item{yhat0}{ an n by 1 vector of initial fitted values, default is NULL}
   \item{scores}{ an object of class 'scores'}
   \item{symmetric}{ logical.  If 'FALSE' uses median of residuals as estimate of intercept} 
   \item{TAU}{version of estimation routine for scale parameter.  F0 for Fortran, R for (slower) R, N for none}
+  \item{betahat0}{ a p by 1 vector of initial parameter estimates, default is NULL}
   \item{\dots}{ additional arguments to be passed to fitting routines }
 
 }
 \details{
-Rank-based estimation involves replacing the L2 norm of least squares estimation with a pseudo-norm which is a function of the ranks of the residuals.
-That is, in rank estimation, the usual notion of Euclidean distance is replaced with another measure of distance which is referred to as Jaeckel's (1972) dispersion function.
-Jaeckel's dispersion function depends on a score function and a library of commonly used score functions is included.  e.g. linear (Wilcoxon) and normal (Gaussian) scores.
-If an inital fit is not supplied (i.e. yhat0 = NULL) then inital fit is based on a LS fit.
+Rank-based estimation involves replacing the L2 norm of least squares estimation with a pseudo-norm which is a function of the residuals and the scored ranks of the residuals.
+That is, in rank-based estimation, the usual notion of Euclidean distance is replaced with another measure of distance which is referred to as Jaeckel's (1972) dispersion function.
+Jaeckel's dispersion function depends on a score function and a library of commonly used score functions is included; eg., linear (Wilcoxon) and normal (Gaussian) scores.
+If an inital fit is not supplied (i.e. yhat0 = NULL and betahat0 = NULL) then inital fit is based on a LS fit.
 
+Esimation of scale parameter tau is provided which may be used for inference.  
 }
 \value{
 \item{coefficients}{estimated regression coefficents with intercept}
@@ -70,6 +73,12 @@ summary(fit)
 x1 <- runif(47); x2 <- runif(47); y <- 1 + 0.5*x1 + rnorm(47)
 # based on a fit to a sub-model
 rfit(y~x1+x2,yhat0=fitted.values(rfit(y~x1)))
+
+### set value of delta used in estimation of tau ###
+w <- factor(rep(1:3,each=3))
+y <- rt(9,9)
+rfit(y~w)$tauhat
+rfit(y~w,delta=0.95)$tauhat  # recommended when n/p < 5
 }
 
 \keyword{nonparametric}

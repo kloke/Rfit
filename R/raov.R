@@ -42,7 +42,7 @@ raov<-function(f,data=list(),...) {
 #  nf is number number of levels in each of the factors
 #  mf is a data.frame of the form [y,a,b,...,z] sorted by z,...,b,a
 
-  fit<-kwayr(nf,mf)
+  fit<-kwayr(nf,mf,...)
 
   # set up column names
   fnames<-names(mf)

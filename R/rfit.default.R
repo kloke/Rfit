@@ -1,5 +1,6 @@
 rfit.default <- function (formula, data, subset, yhat0 = NULL, 
-    scores = Rfit::wscores, symmetric = FALSE, TAU = 'F0', ...) {
+    scores = Rfit::wscores, symmetric = FALSE, TAU = 'F0', 
+    betahat0=NULL, ...) {
 
 # Below is taken from quantreg (under GPL) #
   call<-match.call()
@@ -22,11 +23,15 @@ rfit.default <- function (formula, data, subset, yhat0 = NULL,
   q1<-Q[,1]
   xq<-as.matrix(Q[,2:qrx$rank])
 
-  if( is.null(yhat0) ) yhat0 <- y
+#  if( is.null(yhat0) ) yhat0 <- y
 #  betahat0 <- lsfit(xq, yhat0, intercept = FALSE)$coef
 #  betahat0 <- .lm.fit(xq, yhat0)$coef
 #  betahat0 <- qr.solve(xq,yhat0)
-  betahat0 <- drop(crossprod(xq,yhat0))
+#  betahat0 <- drop(crossprod(xq,yhat0))
+  if( is.null(betahat0) ) {
+    if( is.null(yhat0) ) yhat0 <- y
+    betahat0 <- drop(crossprod(xq,yhat0))
+  }
 
 ## 20141211: set initial fit to null model if it has lower dispersion
   if( disp(betahat0, xq, y, scores) > disp(rep(0,length(betahat0)), xq, y, scores) ) {

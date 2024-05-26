@@ -1,6 +1,5 @@
 \name{taustar}
 \alias{taustar}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Estimate of the Scale Parameter taustar }
 \description{
 An estimate of the scale parameter taustar =  1/(2*f(0)) is needed for the standard error of the intercept in rank-based regression.
@@ -8,7 +7,6 @@ An estimate of the scale parameter taustar =  1/(2*f(0)) is needed for the stand
 \usage{
 taustar(e, p, conf = 0.95)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{e}{n x 1 vector of full model residuals }
   \item{p}{is the number of regression coefficients (without the intercept) }

@@ -4,7 +4,6 @@
 \alias{looptau}
 \alias{pairup}
 \alias{nscale}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Internal Functions for Estimating tau }
 \description{
 These are internal functions used for calculating the scale parameter tau necessary for estimating the standard errors of coefficients for rank-regression.

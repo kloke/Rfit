@@ -21,22 +21,11 @@ Objects can be created by calls of the form \code{new("scores", ...)}.
     \item{\code{param}:}{Object of class \code{"param"} }
   }
 }
-%\section{Methods}{
-%\describe{
-%\item{getScores}{\code{signature(object = "scores")}}{
-%  Evaluates the score function
-%}
-%\item{getScoresDeriv}{\code{signature(object = "scores")}}{
-%  Evaluates the derivative of the score function
-%}
-%}
-%}
 \references{
 Hettmansperger, T.P. and McKean J.W. (2011), \emph{Robust Nonparametric Statistical Methods, 2nd ed.}, New York: Chapman-Hall.
 }
 \author{ John Kloke }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
 \code{\linkS4class{param}}

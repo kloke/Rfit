@@ -24,7 +24,7 @@
 #' 	oneway.rfit(quail$ldl,quail$treat)
 #'  
 #' @export oneway.rfit
-oneway.rfit<-function(y,g,scores=Rfit::wscores,p.adjust='none') {
+oneway.rfit<-function(y,g,scores=Rfit::wscores,p.adjust='none',...) {
 
   ug<-unique(g)
   if( length(ug) < 3 ) stop('requires K > 2')
@@ -34,7 +34,7 @@ oneway.rfit<-function(y,g,scores=Rfit::wscores,p.adjust='none') {
   ### R fit ###
   x<-model.matrix(~as.factor(g)-1)
   x<-x[,2:ncol(x)]
-  fit<-rfit(y~x)
+  fit<-rfit(y~x,scores=scores,...)
   deltahat<-fit$betahat[-1]
   tauhat<-fit$tauhat
 

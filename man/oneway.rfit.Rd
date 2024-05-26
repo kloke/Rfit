@@ -8,7 +8,7 @@ Carries out a robust analysis of variance for a one factor design.
 Analysis is based on the R estimates.
 }
 \usage{
-oneway.rfit(y, g, scores = Rfit::wscores, p.adjust = "none")
+oneway.rfit(y, g, scores = Rfit::wscores, p.adjust = "none",...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -16,6 +16,7 @@ oneway.rfit(y, g, scores = Rfit::wscores, p.adjust = "none")
   \item{g}{ n by 1 vector representing group membership }
   \item{scores}{ an object of class 'scores'}
   \item{p.adjust}{ adjustment to the p-values, argument passed to p.adjust }
+  \item{\dots}{ additional arguments }
 }
 \details{
 Carries out a robust one-way analysis of variance based on full model r fit.

@@ -1,6 +1,5 @@
 \name{vcov.rfit}
 \alias{vcov.rfit}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Variance-Covariance Matrix for Rank-Based Regression }
 \description{
 Returns the variance-covariance matrix of the regression estimates from an object of type rfit.

@@ -1,6 +1,5 @@
 \name{summary.rfit}
 \alias{summary.rfit}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Summarize Rank-Based Linear Model Fits }
 \description{
 Provides a summary similar to the traditional least squares fit.
@@ -8,7 +7,6 @@ Provides a summary similar to the traditional least squares fit.
 \usage{
 \method{summary}{rfit}(object,overall.test,...)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
 \item{object}{an object of class 'rfit', usually, a result of a call to 'rfit'}
 \item{overall.test}{either 'wald' or 'drop'}

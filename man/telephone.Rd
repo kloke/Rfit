@@ -14,9 +14,6 @@ The number of telephone calls (in tens of millions) made in Belgium from 1950-19
     \item{\code{calls}}{number of telephone calls in tens of millions}
   }
 }
-%\details{
-  %~~ If necessary, more details than the __description__ above ~~
-%}
 \source{
 Rousseeuw, P.J. and Leroy, A.M. (1987), \emph{Robust Regression and Outlier Detection}, New York: Wiley.
 }
